@@ -108,7 +108,7 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
             [@"setLogLevel" isEqualToString:call.method] == false &&
             [@"isAvailable" isEqualToString:call.method] == false &&
             [@"getAdapterName" isEqualToString:call.method] == false &&
-            [@"getAdapterState" isEqualToString:call.method] == false) {
+            [@"" isEqualToString:call.method] == false) {
             NSString* s = @"the device does not have bluetooth";
             result([FlutterError errorWithCode:@"bluetoothUnavailable" message:s details:NULL]);
             return;

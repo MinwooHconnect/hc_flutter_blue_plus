@@ -1,6 +1,4 @@
-
 part of flutter_blue_plus;
-
 
 enum BluetoothDeviceType { unknown, classic, le, dual }
 
@@ -17,9 +15,15 @@ BluetoothDeviceType _bmToBluetoothDeviceType(BmBluetoothSpecEnum value) {
   }
 }
 
-enum BluetoothConnectionState { disconnected, connecting, connected, disconnecting }
+enum BluetoothConnectionState {
+  disconnected,
+  connecting,
+  connected,
+  disconnecting
+}
 
-BluetoothConnectionState _bmToBluetoothConnectionState(BmConnectionStateEnum value) {
+BluetoothConnectionState _bmToBluetoothConnectionState(
+    BmConnectionStateEnum value) {
   switch (value) {
     case BmConnectionStateEnum.disconnected:
       return BluetoothConnectionState.disconnected;
@@ -48,6 +52,21 @@ BluetoothAdapterState _bmToBluetoothAdapterState(BmAdapterStateEnum value) {
       return BluetoothAdapterState.turningOff;
     case BmAdapterStateEnum.off:
       return BluetoothAdapterState.off;
+  }
+}
+
+BluetoothBondingState _bmToBluetoothBondingState(BmBondingStateEnum value) {
+  switch (value) {
+    case BmBondingStateEnum.unknown:
+      return BluetoothBondingState.unknown;
+    case BmBondingStateEnum.bonding:
+      return BluetoothBondingState.bonding;
+    case BmBondingStateEnum.bonded:
+      return BluetoothBondingState.bonded;
+    case BmBondingStateEnum.unbonding:
+      return BluetoothBondingState.unbonding;
+    default:
+      return BluetoothBondingState.unknown; // 기본 값을 반환하거나 오류를 발생시킬 수 있다
   }
 }
 
